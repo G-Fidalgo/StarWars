@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Redirect } from "react-router-dom"
 import SearchBar from '../SearchBar/SearchBar';
+import History from '../History/History';
 
 
 export default class Home extends Component {
@@ -15,6 +16,7 @@ export default class Home extends Component {
       return (
         <div>
           <SearchBar />
+          <History loggedInUser={this.state.loggedInUser} />
           <p> Bienvenido aquí se van a cargar los componentes :  </p>
           <ul>
             <li>Barra de búsqueda de películas</li>

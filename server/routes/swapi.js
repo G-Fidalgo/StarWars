@@ -19,7 +19,7 @@ swapiRoutes.get('/films', (req, res, next) =>{
       let parsedBodyMapped = parsedBody.results.map((film) => {
         return {
           tittle: film.title,
-          id: film.url.substr(27, 1)
+          id: film.url.substr(film.url.length -2).slice(0, 1)
         }
       })
       res.json(parsedBodyMapped)
@@ -38,8 +38,6 @@ swapiRoutes.get('/films/:id' , (req, res, next) => {
 
   request(options)
     .then((parsedBody) => {
-      // console.log('entro a pedir')
-      // res.json(parsedBody)
       film = {
         title: parsedBody.title,
         episode: parsedBody.episode_id,
@@ -53,7 +51,19 @@ swapiRoutes.get('/films/:id' , (req, res, next) => {
 
 })
 
+swapiRoutes.get('/history/:user', (req, res, next)=>{
+  const user = req.params.user
 
+  User.findById(user)
+    .then(user => {
+      let urlMapped = user.hystory.map((url) => {
+        return url.substr(url.length - 6)
+      })
+
+      res.json(urlMapped)
+    })
+    .catch(err => console.log('an error ocurred while getting paths'))
+})
 
 swapiRoutes.post('/history', (req, res, next) => {
   const user = req.body.user_id

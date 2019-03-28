@@ -30,7 +30,7 @@ export default class SearchBar extends Component {
       this.state.films.map((film) => {
         if (film.tittle.toLowerCase().indexOf(value.toLowerCase()) >= 0){
           return suggestions.push(film)
-        }
+        } else return console.log()
       })
     }
     this.setState({...this.state, suggestions, text: value})
@@ -43,7 +43,7 @@ export default class SearchBar extends Component {
     }
     return (
       <ul>
-        {this.state.suggestions.map((suggestion)=> <li key={suggestion.id}><Link to={`/film/${suggestion.id}`}>{suggestion.tittle}</Link></li>)}
+        {this.state.suggestions.map((suggestion, idx)=> <li key={idx}><Link to={`/film/${suggestion.id}`}>{suggestion.tittle}</Link></li>)}
       </ul>
     )
   }
