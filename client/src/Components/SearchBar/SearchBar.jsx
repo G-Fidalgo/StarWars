@@ -43,7 +43,7 @@ export default class SearchBar extends Component {
     }
     return (
       <ul>
-        {this.state.suggestions.map((suggestion)=> <li key={suggestion.id}><Link to={`/${suggestion.id}`}>{suggestion.tittle}</Link></li>)}
+        {this.state.suggestions.map((suggestion)=> <li key={suggestion.id}><Link to={`/film/${suggestion.id}`}>{suggestion.tittle}</Link></li>)}
       </ul>
     )
   }

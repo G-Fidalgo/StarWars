@@ -9,6 +9,7 @@ import Navbar from './Components/NavBar/Navbar';
 import Signup from './Components/Auth/Signup'
 import Login from './Components/Auth/Login'
 import Home from './Components/Home/Home';
+import FilmCard from './Components/FilmCard/FilmCard';
 
 
 class App extends Component {
@@ -61,6 +62,7 @@ class App extends Component {
               )}
             />
             <Route exact path='/home' render={props => (<Home loggedInUser={this.state.loggedInUser} />)} />
+            <Route  path='/film' render={props => (<FilmCard loggedInUser={this.state.loggedInUser} />)} />
           </Switch>
         </div>
       );
