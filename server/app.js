@@ -74,7 +74,7 @@ app.use(flash())
 const auth = require('./routes/auth')
 app.use('/auth', auth)
 
-
-
+const swapi = require('./routes/swapi')
+app.use('/swapi', swapi)
 
 module.exports = app;

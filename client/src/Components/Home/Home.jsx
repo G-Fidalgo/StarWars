@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { Redirect } from "react-router-dom"
+import SearchBar from '../SearchBar/SearchBar';
+
 
 export default class Home extends Component {
   constructor(props) {
@@ -12,6 +14,7 @@ export default class Home extends Component {
     if (this.state.loggedInUser) {
       return (
         <div>
+          <SearchBar />
           <p> Bienvenido aquí se van a cargar los componentes :  </p>
           <ul>
             <li>Barra de búsqueda de películas</li>
