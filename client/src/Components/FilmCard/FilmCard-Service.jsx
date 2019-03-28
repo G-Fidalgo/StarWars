@@ -16,9 +16,10 @@ class FilmCardService {
       })
   }
 
-  // sendUrl = (id) => {
-  //   return this.service.post()
-  // }
+  sendUrl = (url, user_id) => {
+    return this.service.post('/swapi/history', {url, user_id})
+    .then(response => response.data)
+  }
 }
 
 export default FilmCardService

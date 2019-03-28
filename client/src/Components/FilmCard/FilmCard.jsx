@@ -18,9 +18,18 @@ export default class FilmCard extends Component {
   componentDidMount(){
     let path = window.location.pathname
     let id = path.substr(6 ,1)
+
+    let user = this.state.loggedInUser._id
+    let url = window.location.href
+    
     this.FilmCardService.getFilmInfo(id)
       .then((data) => {this.setState({...this.state, film: data})})
       .catch(err => console.log('an error ocurred while setting state with info'))
+
+    this.FilmCardService.sendUrl(url, user)
+      .then(response => console.log('history sended to Service'))
+      .catch(err => console.log('an error ocurred while sending history to service'))
+
   }
 
   render() {

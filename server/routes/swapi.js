@@ -1,6 +1,7 @@
 const express = require("express")
 const swapiRoutes = express.Router()
 const request = require('request-promise');
+const User = require("../models/User");
 
 
 swapiRoutes.get('/films', (req, res, next) =>{
@@ -54,8 +55,14 @@ swapiRoutes.get('/films/:id' , (req, res, next) => {
 
 
 
-swapiRoutes.post('/film/:id', (req, res, next) => {
-  const id = req.id
+swapiRoutes.post('/history', (req, res, next) => {
+  const user = req.body.user_id
+  const url = req.body.url
+
+  User.findByIdAndUpdate(user, {$push: {hystory: url}})
+   .then(() => console.log('url saved correctly'))
+   .catch(err => console.log('a problem while saving de url'))
+
 })
 
 module.exports = swapiRoutes
