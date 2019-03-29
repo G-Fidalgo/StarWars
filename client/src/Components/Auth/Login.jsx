@@ -47,23 +47,27 @@ class Login extends Component {
 
   render() {
     return (
-    <div className='container1'>
+    <div className='logInContainer'>
       {this.state.redirect === true ? <Redirect to ="/home"/> : ''}
-      <h3>Please, Log In to live the WyNot VIP experience</h3>
-
-      <form onSubmit={this.handleFormSubmit}>
-        <fieldset>
-          <label>Email:</label>
-          <input type="text" name="username" value={this.state.username} onChange={e => this.handleChange(e)} />
+      <div className='welcome'>
+        <h3>LOGIN</h3>
+      </div>
+      <div className='form'>
+      <form onSubmit={this.handleFormSubmit} >
+        <fieldset className='loginFieldSet'>
+          <label className='loginLabel'>Email:</label>
+          <input className='loginInput' type="text" name="username" placeholder='enter your email' value={this.state.username} onChange={e => this.handleChange(e)} />
         </fieldset>
 
-        <fieldset>
-          <label>Password:</label>
-          <input type="password" name="password" value={this.state.password} onChange={e => this.handleChange(e)} />
+        <fieldset className='loginFieldSet'>
+          <label className='loginLabel'>Password:</label>
+          <input className='loginInput' type="password" name="password" placeholder='password' value={this.state.password} onChange={e => this.handleChange(e)} />
         </fieldset>
 
-        <input type="submit" value="Login" />
+        <input className='loginButton'type="submit" value="Submit" />
       </form>
+      </div>
+      
 
       <h1>{this.state.error ? 'Error, your email or password is not correct' : ''}</h1>
     </div>)

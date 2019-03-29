@@ -2,18 +2,17 @@ import React, { Component } from "react";
 import { Link, Redirect } from "react-router-dom";
 import AuthService from "../Auth/Auth-Service";
 
+import './Navbar.css'
+
 class Navbar extends Component {
   constructor(props) {
     super(props);
-    this.state = { loggedInUser: props.loggedInUser, redirect: false };
+    this.state = { 
+       loggedInUser: props.loggedInUser,
+      };
     this.service = new AuthService();
   }
 
-  renderRedirect = () => {
-    if (this.state.redirect) {
-      return <Redirect to="/" />;
-    }
-  };
 
   componentWillReceiveProps(nextProps) {
     this.setState({ ...this.state, loggedInUser: nextProps["loggedInUser"] });
@@ -28,19 +27,17 @@ class Navbar extends Component {
     if (this.state.loggedInUser) {
       return (
         <nav className="nav-style">
-          <div className="container">
-            <p className="button1">
-              <Link to={"/home"}> Home</Link>
+          <div className="logContainer">
+            <p >
+              <Link to={"/home"}className="nonLogButtons home"> Home</Link>
             </p>
 
             <p>
-              {" "}
-              Hi {this.state.loggedInUser.username}, ready to live the Star Wars
-              experience ?{" "}
+              Hi {this.state.loggedInUser.username}
             </p>
 
-            <Link to="/">
-              <button onClick={this.handleLogout}>Logout</button>
+            <Link to="/" >
+              <button className='logOut' onClick={this.handleLogout}>Logout</button>
             </Link>
           </div>
         </nav>
@@ -49,15 +46,9 @@ class Navbar extends Component {
       return (
         <div>
           <nav className="nav-style">
-            <div className="container">
-              <div className="buttons">
-                <div className="button1">
-                  <Link to="/singup">Signup</Link>
-                </div>
-                <div className="button2">
-                  <Link to="/">Login</Link>
-                </div>
-              </div>
+            <div className="nonLogContainer">
+                  <Link className="nonLogButtons" to="/signup">Signup</Link>
+                  <Link className="nonLogButtons" to="/">Login</Link>
             </div>
           </nav>
         </div>

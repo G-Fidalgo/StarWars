@@ -1,0 +1,57 @@
+.nav-style{
+  /* position: fixed; */
+  width: 100vw;
+  height: 100px;
+  background-color: #D3D3D3;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+.nonLogContainer{
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+  padding-top: 1%;
+}
+
+.logContainer{
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+  padding-top: 1%;
+}
+
+.nonLogButtons {
+  text-align: center;
+  text-decoration: none;
+  background-color: black;
+  margin: 10px;
+  border-radius: 5px;
+  text-decoration: none;
+  color: white;
+  padding: 15px;
+}
+
+.home > a{
+  text-align: center;
+  text-decoration: none;
+  background-color: black;
+  margin: 10px;
+  border-radius: 5px;
+  text-decoration: none;
+  color: white;
+  padding: 15px;
+
+}
+
+.logOut{
+  margin-left: 10px;
+  background-color: #CC0000;
+  color: black;
+  padding: 15px;
+  border-radius: 5px;
+  font-size: 15px;
+  font-weight: bold;
+}

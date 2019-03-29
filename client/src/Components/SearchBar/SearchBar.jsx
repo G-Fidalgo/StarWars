@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
+
 import SearchBarService from './SearchBar-Service'
 
 export default class SearchBar extends Component {
@@ -51,12 +52,12 @@ export default class SearchBar extends Component {
   render() {
     if (this.state.films.length <= 0){
       return (
-        <h1>Cargando</h1>
+        <h1>Loading</h1>
       )
     } else {
       return (
         <div>
-          <input value={this.state.text} type='text' onChange={this.onTextChanged} />
+          <input  value={this.state.text} type='text' onChange={this.onTextChanged} />
             {this.renderSuggestions()}
         </div>
       )

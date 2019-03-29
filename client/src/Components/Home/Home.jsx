@@ -7,7 +7,9 @@ import History from '../History/History';
 export default class Home extends Component {
   constructor(props) {
     super(props);
-    this.state = { loggedInUser: props.loggedInUser, redirect: false };
+    this.state = {
+      loggedInUser: props.loggedInUser
+    };
 
   }
 
@@ -15,14 +17,17 @@ export default class Home extends Component {
     if (this.state.loggedInUser) {
       return (
         <div>
-          <SearchBar />
-          <History loggedInUser={this.state.loggedInUser} />
-          <p> Bienvenido aquí se van a cargar los componentes :  </p>
-          <ul>
-            <li>Barra de búsqueda de películas</li>
-            <li>Slider con los personajes de StarWars</li>
-            <li>Lista de las páginas visitas por el ususario</li>
-          </ul>
+          <div>
+            <h2>Search for your Star Wars favourite films: </h2>
+            <SearchBar /> 
+          </div>
+          
+          <div>
+            <h2>Check out the films that you have already searched {this.state.loggedInUser.username}:</h2>
+            <History loggedInUser={this.state.loggedInUser} />
+          </div>
+          
+          
         </div>
       )
     } else {

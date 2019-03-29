@@ -9,7 +9,6 @@ export default class FilmCard extends Component {
     super(props);
     this.state = { 
       loggedInUser: props.loggedInUser,
-      redirect: false,
       film: []
     }
     this.FilmCardService = new FilmCardService()
